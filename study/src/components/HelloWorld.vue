@@ -5,47 +5,81 @@
     <p>age : {{ age + 10 }}</p>
     <p v-html="article"></p>
     <p>{{ seen ? 'yes' : 'no' }}</p>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
+    <p v-if="ifseen"> ifseen? </p>
+    <p v-else> false </p>
+    <p v-show="ifshow"> show </p>
+    <p v-show="!ifshow"> !show </p>
+    <a v-bind:href="url">구글 </a><br/>
+    <a :href="url">구글 </a>
+    <p :class="{ active: isActive }">활성화</p> 
+    <p :style="{color : 'red', fontSize : fontSize + 'px'}">스타일!</p>
+
+    {{items}}
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+      <li v-for="item in items" :key="item.name">
+         {{item.name}} / {{item.age}}
+      </li>
     </ul>
-    <h3>Essential Links</h3>
+
+    {{person}}
     <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+      <li v-for="(val,key,idx) in person" :key="idx">
+        {{val}}
+      </li>
     </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+
+    <button v-on:click.once="updateScore(1)">클릭클릭</button>
+    <h1>score : {{score}}</h1>
+
+    <input @keyup.enter="enterEvent()"/>
+
+    <h2>오늘 : {{today}}</h2>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  methods : {
+    updateScore(score){
+      console.log(score);
+      this.score = score;
+
+    },
+    enterEvent(){
+      console.log("enter");
+    },
+  },
+  computed : {
+    today() {
+      let date = new Date();
+      return '/day/'+date.getDay();
+    }
+  },
   data() {
     return{
+      score : 0,
       msg: '방가',
       auther : 'bob',
       age : 31,
       article : `<strong>Hello</strong> world`,
       seen : true,
+      ifseen : false,
+      ifshow : true,
+      url : "http://google.com",
+      isActive : false,  
+      fontSize : 30,
+      items : [
+        {name : 'aaa', age : 11},
+        {name : 'bbb', age : 12},
+        {name : 'uuu', age : 13},
+      ],
+      person : {
+        name : "bom",
+        age : 32,
+        fav : "U",
+      },
     }
   }
   // props: {
