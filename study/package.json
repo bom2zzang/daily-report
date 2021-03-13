@@ -2,16 +2,19 @@
   "name": "study",
   "version": "0.1.0",
   "private": true,
-  "scripts": { 
+  "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "moment": "^2.29.1",
+    "monent": "^0.0.2-security",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "xeicon": "^2.3.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

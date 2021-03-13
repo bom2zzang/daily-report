@@ -244,6 +244,13 @@
   <style lang="scss" src="./assets/css/style.scss" />
   ```
 
+---
+
+## 컴포넌트 라이프사이클
+
+- 컴포넌트 기반 프레임워크의 핵심
+- 컴포넌트 입장에서 생성부터 소멸까지의 큰 흐름
+
 ## Project setup
 
 ```
