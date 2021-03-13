@@ -14,6 +14,10 @@
                 <div class="action">
                     <input type="text" v-model="item.action" placeholder="한 일을 작성해주세요">
                 </div>
+                <day-score @onUpdateScore="onUpdateScore" :item=item></day-score>
+                <div class="note">
+                    <textarea v-model="item.note" placeholder="노트를 작성해주세요"></textarea>
+                </div>
             </li>
 
         </ul>
@@ -21,11 +25,18 @@
 </template>
 
 <script>
+import DayScore from './DayScore'
 
 export default {
     name : 'Day',
-    methods : {},
+    methods : {
+        onUpdateScore(item,score){
+            // console.log("day에서 받음"+score);
+            item.score = score;
+        }
+    },
     computed : {},
+    components : {DayScore},
     data(){
         return {
             items : [
