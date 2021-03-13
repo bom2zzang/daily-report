@@ -251,6 +251,24 @@
 - 컴포넌트 기반 프레임워크의 핵심
 - 컴포넌트 입장에서 생성부터 소멸까지의 큰 흐름
 
+---
+
+## firebase
+
+- BaaS 서비스
+- 우리 서비스의 서버역할
+- Database와 Hosting을 사용
+
+---
+
+## Database
+
+- noSQL
+- 구조가 유연하다
+- key: value의 구조로 되어 있다
+- 라이브러리를 import하여 사용 또는 RESTful API로 사용
+- 몇 가지 규칙 설정 필요
+
 ## Project setup
 
 ```
