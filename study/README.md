@@ -269,6 +269,20 @@
 - 라이브러리를 import하여 사용 또는 RESTful API로 사용
 - 몇 가지 규칙 설정 필요
 
+---
+
+## firebase REST API
+
+- https://firebase.google.com/docs/database/rest/start
+- endpoint
+  - 요청URL
+  - `https://{APPID}.firebaseio.com/{items.json}`
+- method
+  - GET, POST, PUT, DELETE
+- header
+- parameters
+- body
+
 ## Project setup
 
 ```
